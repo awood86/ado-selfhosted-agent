@@ -33,7 +33,10 @@ RUN pwsh -Command Install-Module -Name Az -Scope AllUsers -Repository PSGallery
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
 # Install Bicep
-RUN az bicep install
+RUN curl -Lo bicep https://github.com/Azure/bicep/releases/latest/download/bicep-linux-x64
+RUN chmod +x ./bicep
+RUN mv ./bicep /usr/local/bin/bicep
+RUN bicep --help
 
 # Can be 'linux-x64', 'linux-arm64', 'linux-arm', 'rhel.6-x64'.
 ENV TARGETARCH=linux-x64
