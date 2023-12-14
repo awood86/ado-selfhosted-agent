@@ -1,0 +1,41 @@
+FROM ubuntu:latest
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends \
+    apt-transport-https \
+    apt-utils \
+    ca-certificates \
+    curl \
+    git \
+    iputils-ping \
+    jq \
+    lsb-release \
+    software-properties-common \
+    wget
+
+RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+
+# Register Microsoft repository
+RUN curl -sSL https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+RUN echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/microsoft.list
+
+# Install PowerShell
+RUN apt-get update && apt-get install -y -qq powershell
+
+# Install Bicep
+RUN curl -Lo bicep https://github.com/Azure/bicep/releases/latest/download/bicep-linux-x64
+RUN chmod +x ./bicep
+RUN mv ./bicep /usr/local/bin/bicep
+RUN bicep --help
+
+# Can be 'linux-x64', 'linux-arm64', 'linux-arm', 'rhel.6-x64'.
+ENV TARGETARCH=linux-x64
+
+WORKDIR /azp
+
+COPY azure-pipelines-agent/start.sh .
+RUN chmod +x start.sh
+
+ENTRYPOINT [ "./start.sh" ]
