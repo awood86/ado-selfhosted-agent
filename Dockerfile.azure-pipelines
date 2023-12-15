@@ -15,6 +15,12 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommend
     software-properties-common \
     wget
 
+# Install Python and pip
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python3 python3-pip
+
+# Install the latest cryptography package
+RUN pip3 install cryptography
+
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
 # Install Powershell Core
