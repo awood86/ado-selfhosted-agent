@@ -18,8 +18,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommend
 # Install Python and pip
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python3 python3-pip
 
-# Install the latest cryptography package
-RUN pip3 install cryptography
+# Install cryptography package version 41.0.6 or above
+RUN pip3 install 'cryptography>=41.0.6'
 
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
