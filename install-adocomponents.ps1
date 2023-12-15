@@ -15,3 +15,8 @@ choco install az.powershell -y
 
 # Install Bicep
 choco install bicep -y
+
+# Replace '/path/to/bash' with the actual path to the directory that contains bash
+$bashPath = 'C:\Program Files\Git\usr\bin'
+$env:Path += ";$bashPath"
+[Environment]::SetEnvironmentVariable("Path", $env:Path, [System.EnvironmentVariableTarget]::Machine)
