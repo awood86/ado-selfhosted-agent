@@ -1,3 +1,6 @@
+# Disable Enhanced Internet Explorer Security Configuration
+Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}' -Name 'IsInstalled' -Value 0
+
 # Install PowerShell Core
 iex "& { $(irm https://aka.ms/install-powershell.ps1) }"
 
