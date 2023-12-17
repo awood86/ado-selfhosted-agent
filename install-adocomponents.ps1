@@ -15,3 +15,6 @@ choco install bicep -y
 
 # Install git with pwsh
 choco install git -y
+
+# Add to PATH
+Add-MachinePathItem "C:\Program Files\Git\bin"
