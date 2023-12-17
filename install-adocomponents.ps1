@@ -5,13 +5,13 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 choco install powershell-core -y
 
 # Install Az Powershell Module
-pwsh -c "Install-Module -Name Az -AllowClobber -Scope AllUsers -Force"
+choco install az.powershell -y
 
 # Install Azure CLI with pwsh
-pwsh choco install azure-cli -y
+choco install azure-cli -y
 
 # Install Bicep with pwsh
-pwsh choco install bicep -y
+choco install bicep -y
 
 # Install git with pwsh
-pwsh choco install git -y
+choco install git -y
