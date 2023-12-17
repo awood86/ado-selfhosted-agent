@@ -12,3 +12,6 @@ pwsh choco install azure-cli -y
 
 # Install Bicep with pwsh
 pwsh choco install bicep -y
+
+# Install git with pwsh
+pwsh choco install git -y
