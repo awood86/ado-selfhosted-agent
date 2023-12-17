@@ -7,5 +7,8 @@ choco install powershell-core -y
 # Install Az Powershell Module with pwsh
 pwsh choco install az.powershell -y
 
-# Install Azure CLI
-choco install azure-cli -y
+# Install Azure CLI with pwsh
+pwsh choco install azure-cli -y
+
+# Install Bicep with pwsh
+pwsh choco install bicep -y
