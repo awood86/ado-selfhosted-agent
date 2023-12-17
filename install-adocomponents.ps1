@@ -5,11 +5,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 choco install powershell-core -y
 
 # Install Az Powershell Module
-Install-PackageProvider NuGet -Force
-Import-PackageProvider NuGet -Force
-Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
-Install-Module -Name Az -Force -AllowClobber
-Install-Module -Name Az.Accounts -Force -AllowClobber
+choco install az.powershell -y
 
 # Install Azure CLI with pwsh
 choco install azure-cli -y
