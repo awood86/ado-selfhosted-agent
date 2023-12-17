@@ -3,3 +3,6 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 # Install Powershell Core
 choco install powershell-core -y
+
+# Install Az Powershell Module with pwsh
+pwsh choco install az.powershell -y
