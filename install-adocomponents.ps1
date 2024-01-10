@@ -16,5 +16,8 @@ choco install bicep -y
 # Install git with pwsh
 choco install git -y
 
+# Install SQLPackage
+choco install sqlpackage -y
+
 # Add to PATH
 Add-MachinePathItem "C:\Program Files\Git\bin"
