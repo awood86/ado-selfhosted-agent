@@ -20,8 +20,10 @@ choco install bicep -y
 # Install git with pwsh
 choco install git -y
 
-# Install SQLPackage
-choco install sqlpackage -y
+# Install DacFramework
+wget -O DacFramework.msi "
+https://aka.ms/dacfx-msi"
+msiexec.exe /i "DacFramework.msi" /qn
 
 # Add-MachinePathItem function
 function Add-MachinePathItem($item) {
@@ -32,9 +34,6 @@ function Add-MachinePathItem($item) {
 
 # Add Git to PATH
 Add-MachinePathItem "C:\Program Files\Git\bin"
-
-# Add SQL Package to PATH
-Add-MachinePathItem "C:\ProgramData\chocolatey\lib\sqlpackage\tools"
 
 # Install Nuget
 Install-PackageProvider -Name NuGet -Force -Scope AllUsers
