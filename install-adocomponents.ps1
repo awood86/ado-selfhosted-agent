@@ -34,10 +34,13 @@ function Add-MachinePathItem($item) {
 Add-MachinePathItem "C:\Program Files\Git\bin"
 
 # Add SQL Package to PATH
-Add-MachinePathItem "C:\Program Files\Microsoft SQL Server\160\DAC\bin"
+Add-MachinePathItem "C:\ProgramData\chocolatey\lib\sqlpackage\tools"
 
 # Install Nuget
 Install-PackageProvider -Name NuGet -Force -Scope AllUsers
 
 # Install-MSGraph
 Install-Module -Name Microsoft.Graph -Scope AllUsers -Repository PSGallery -AllowClobber -Force
+
+# Install SqlServer
+Install-Module -Name SqlServer -Scope AllUsers -Repository PSGallery -AllowClobber -Force
